@@ -1,3 +1,5 @@
+import model.Person;
+import model.Person.PersonBuilder;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -17,7 +19,10 @@ public class Main
 
     }
 
-    public static void main(String[] args){
-        System.out.println("Hello Hibernate");
+    public static void main( String[] args)
+    {
+        Person person = new PersonBuilder( "Arthur", "Kalule" ).withEmail( "kalulearthur@gmail.com" ).build();
+        System.out.println( person );
+        System.out.println( "Hello Hibernate" );
     }
 }
