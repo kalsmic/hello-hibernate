@@ -27,7 +27,7 @@ public class JdbcMain
             statement.executeUpdate(
                     "CREATE TABLE person (id INTEGER PRIMARY KEY, firstname STRING, lastname STRING)" );
 
-//            insert data into db
+            //            insert data into db
 
             statement.executeUpdate( "INSERT INTO person (firstname, lastname) VALUES('arthur', 'Kalule')" );
             statement.executeUpdate( "INSERT INTO person (firstname, lastname)  VALUES('Benna', 'Nakamaanya')" );
