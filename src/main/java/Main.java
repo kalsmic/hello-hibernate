@@ -1,5 +1,6 @@
 import model.Person;
 import model.Person.PersonBuilder;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.MetadataSources;
 import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
@@ -22,7 +23,22 @@ public class Main
     public static void main( String[] args)
     {
         Person person = new PersonBuilder( "Arthur", "Kalule" ).withEmail( "kalulearthur@gmail.com" ).build();
-        System.out.println( person );
-        System.out.println( "Hello Hibernate" );
+
+        // open a session
+        Session session = sessionFactory.openSession();
+
+        // begin a transaction.
+        session.beginTransaction();
+
+        // use the session to save the person object
+        session.save( person );
+
+        // commit the transaction
+        session.getTransaction().commit();
+
+        // close the session
+        session.close();
+
+
     }
 }
